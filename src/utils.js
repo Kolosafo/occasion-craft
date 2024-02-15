@@ -1,1 +1,1 @@
-export const URL = "https://ocassioncraft.netlify.app/";
+export const URL = "https://occassioncraft.netlify.app/";
