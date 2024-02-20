@@ -24,7 +24,7 @@ const TicketEvent = () => {
         alignItems: "center",
       }}
     >
-      <h1>Ticket Event</h1>
+<h1 className="text-capitalize">Set up a Ticket Event</h1>
       <EventFormCard eventType="ticket" />
     </div>
   );

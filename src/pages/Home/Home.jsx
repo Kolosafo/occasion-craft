@@ -1,7 +1,11 @@
+import Carousel from "./Carousel";
+
 const Home = () => {
   return (
     <>
-      <h1>HOME PAGE</h1>
+      <div className="container">
+        <Carousel />
+      </div>
     </>
   );
 };

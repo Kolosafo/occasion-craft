@@ -6,6 +6,7 @@ export { default as TicketEvent } from "./TicketEvent/index";
 export { default as MeetingEvent } from "./MeetingEvent/index";
 export { default as GetTogetherEvent } from "./GetTogetherEvent/index";
 export { default as OtherEvent } from "./OtherEvent/index";
+export { default as weddingevent } from "./weddingevent/index";
 export { default as Events } from "./Events/index";
 export { default as EditEvent } from "./EditEvent/index";
 export { default as CreateEvent } from "./CreateEvent/index";

@@ -4,6 +4,8 @@ import { QRCodeCanvas } from "qrcode.react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { db, guestCollectionRef } from "../../../firebase";
+import { URL } from "../../utils";
+import "./style.css"
 
 // eslint-disable-next-line react/prop-types
 const Guest = () => {
@@ -90,14 +92,16 @@ const Guest = () => {
       ) : isLoadingComponent || !event || !guest ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
+
+        <div className="body">
+        <div className="invitation-card">
           {verifier ? (
             <>
               <h6 style={{ fontSize: "20px", color: "red" }}>
                 Tickets Left For This Guest: {guest.ticketCount}
               </h6>
-              <h2>Event: {event.eventTitle}</h2>
-              <h5>Guest: {guest.guestName}</h5>
+              <p><strong>Event Title:</strong> {event.eventTitle}</p>
+              <p><strong>Guest Name:</strong> {guest.guestName}</p>
               <h4 style={{ marginBottom: "20px" }}>
                 Event Date: {event.eventDate}
               </h4>
@@ -121,35 +125,48 @@ const Guest = () => {
             </>
           ) : (
             <>
-              <h5>Guest: {guest.guestName}</h5>
+            
+              <h2 className="text-uppercase">{event.eventTitle}</h2>
+              <p className="text-capitalize">Welcome to {event.eventTitle}</p>
+
+              <p><strong>Guest Name:</strong> {guest.guestName}</p>
+              <p><strong>Event Date:</strong> {event.eventDate}</p>
+              <p><strong>Admits:</strong> {guest.ticketCount} Guest(s)</p>
+
               <QRCodeCanvas
+              
                 size={300}
                 id="123456"
                 style={{
-                  height: "auto",
-                  // maxWidth: "50%",
-                  // width: "50%",
-                  padding: "20px",
-                  backgroundColor: "white",
+                  display: "block",
+                  margin: "0 auto",
+                  maxWidth: "200px",
+                  maxHeight: "200px"
                 }}
                 fgColor={"black"}
-                value={guest.invitationId}
+                value={URL + "guest/" +guest.invitationId}
                 className="mb-10 rounded-lg shadow-xl lg:mb-0"
               />
-              <h6 style={{ color: "red" }}>
-                Tickets Left: {guest.ticketCount}
-              </h6>
-              <h2>Event: {event.eventTitle}</h2>
-              <h4 style={{ marginBottom: "20px" }}>
-                Event Date: {event.eventDate}
-              </h4>
-              <h5>Invited By: {event.eventHoster}</h5>
             </>
           )}
+        </div>
         </div>
       )}
     </>
   );
+  <body>
+<div class="invitation-card">
+  <h2>Universal Invitation</h2>
+  <p>Welcome to our event!</p>
+  <div class="invitation-details">
+    <p><strong>Guest Name:</strong> John Doe</p>
+    <p><strong>Event Title:</strong> Celebration Party</p>
+    <p><strong>Admits:</strong> 1 guest</p>
+    <img class="qr-code" src="https://example.com/qr-code" alt="QR Code"/>
+  </div>
+</div>
+</body>
 };
+
 
 export default Guest;

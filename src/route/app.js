@@ -7,6 +7,7 @@ import {
   MeetingEvent,
   GetTogetherEvent,
   OtherEvent,
+  weddingevent,
   Events,
   EditEvent,
   CreateEvent,
@@ -68,6 +69,10 @@ export const appRoutes = [
   {
     to: "/other-event",
     element: OtherEvent,
+  },
+  {
+    to: "/wedding-event",
+    element: weddingevent,
   },
   {
     to: "/login",

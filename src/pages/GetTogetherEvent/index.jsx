@@ -24,7 +24,7 @@ const GetTogetherEvent = () => {
         alignItems: "center",
       }}
     >
-      <h1>Get Together Event</h1>
+    <h1 className="text-capitalize">Set up a Get Together</h1>
       <EventFormCard eventType={"get together"} />
     </div>
   );

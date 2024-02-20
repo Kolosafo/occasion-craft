@@ -6,6 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadEvents, removeEvents } from "../../redux/features/eventSlice";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { FaRegEye } from "react-icons/fa6";
+import { GoPencil } from "react-icons/go";
+import { TiDelete } from "react-icons/ti";
+
+
+
 
 const Events = () => {
   const dispatch = useDispatch();
@@ -15,7 +21,7 @@ const Events = () => {
   const [isLoading, setIsLoading] = useState(false);
   const handleDeleteEvent = async (id) => {
     const deleteEvent = prompt("Type 'Yes' to delete event");
-    if (deleteEvent === "Yes") {
+    if (deleteEvent == "Yes") {
       setIsLoading(true);
       const eventToDelete = doc(db, "event", id);
       await deleteDoc(eventToDelete);
@@ -51,51 +57,57 @@ const Events = () => {
     }
   }, [user, isLogged, dispatch, events.length]);
   return (
-    <div style={fullCenterStyle}>
-      <h1>All Events</h1>
+    <div class="container text-center">
+      <p><h1>My Events</h1></p>
       {isLoading ? (
         <h3>Loading...</h3>
       ) : (
-        <table>
-          <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Hoster</th>
-            <th>Location</th>
-            <th>Time</th>
-            <th>Event Type</th>
-            <th>Guests</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
+
+        <table class="table text-center table-primary">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Date</th>
+              <th scope="col">Host</th>
+              <th scope="col">Location</th>
+              <th scope="col">Time</th>
+              <th scope="col">Type</th>
+              <th scope="col">Guests</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
           {events && events.length > 0 ? (
             events.map((event) => (
-              <tr key={event.id}>
-                <td>{event.eventTitle}</td>
-                <td>{event.eventDate}</td>
-                <td>{event.eventHoster}</td>
-                <td>{event.eventLocation}</td>
-                <td>{event.eventTime}</td>
-                <td>{event.eventType}</td>
-                <td
+              <tr key={event.id} className=" shadow-sm">
+                <td scope="col">{event.eventTitle}</td>
+                <td scope="col">{event.eventDate}</td>
+                <td scope="col">{event.eventHoster}</td>
+                <td scope="col">{event.eventLocation}</td>
+                <td scope="col">{event.eventTime}</td>
+                <td scope="col">{event.eventType}</td>
+                <td scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() =>
                     navigate(`/view-guests/${event.eventTitle}/${event.id}`)
                   }
                 >
-                  View Guests
+                  <FaRegEye color="#007BFF" size={40} class="btn btn-primary"/>
+
                 </td>
-                <td
+                <td scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() => navigate(`/edit-event/${event.id}`)}
                 >
-                  Edit Event
+                  <GoPencil size={40}/>
+
                 </td>
-                <td
+                <td scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() => handleDeleteEvent(event.id)}
                 >
-                  Delete Event
+                    <TiDelete color="red" className="btn btn-danger" size={40}/>
+
                 </td>
               </tr>
             ))
@@ -105,13 +117,8 @@ const Events = () => {
         </table>
       )}
       <button
-        style={{
-          position: "absolute",
-          bottom: "0",
-          left: "0",
-          backgroundColor: "lightgray",
-          color: "black",
-        }}
+      
+        class=" btn btn-primary m-2 position-fixed bottom-0 end-0"
         onClick={() => navigate(`/create-event`)}
       >
         New Event

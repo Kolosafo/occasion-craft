@@ -40,67 +40,74 @@ const EventFormCard = ({ eventType }) => {
   };
   return (
     <form
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-        width: "50%",
-      }}
+    className="text-center"
       onSubmit={handleSubmit}
     >
-      <span>How&apos;s Hosting?</span>
+      <div class="mb-4">
+
+      <span for="formGroupExampleInput" class="form-label text-capitalize" >How&apos;s Hosting?</span>
       <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
         type="text"
-        placeholder="Who's hosting?"
+        placeholder="Host"
         style={formStyle}
         value={hoster}
         onChange={(e) => setHoster(e.target.value)}
       />
-      <span>Event Title</span>
+            </div>
+      <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">Event Title </span>
       <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
         type="text"
-        placeholder="Event Title"
+        placeholder="Title"
         style={formStyle}
         value={eventTitle}
         onChange={(e) => setEventTitle(e.target.value)}
       />
-      <span>Event Date</span>
+      </div >
+      <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">Event Date</span>
       <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
         type="date"
-        placeholder="Event Date"
+        placeholder="Date"
         style={formStyle}
         value={eventDate}
         onChange={(e) => setEventDate(e.target.value)}
       />
-      <span>Event Time</span>
+      </div>
+      <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">Event Time</span>
       <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
         type="time"
-        placeholder="Event Time"
+        placeholder="Time"
         style={formStyle}
         value={eventTime}
         onChange={(e) => setEventTime(e.target.value)}
       />
-      <span>Location</span>
+      </div >
+      <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">Location</span>
       <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
         type="text"
         placeholder="Location"
         style={formStyle}
         value={eventLocation}
         onChange={(e) => setEventLocation(e.target.value)}
       />
+      </div>
+      <div class="mb-4">
       <input
+      class="btn btn-primary text-uppercase "
         type="submit"
         value={isLoading ? "Loading.." : "Submit"}
         disabled={isLoading}
-        style={{
-          cursor: "pointer",
-          padding: "10px",
-          backgroundColor: isLoading ? "gray" : "cyan",
-          color: "black",
-          fontSize: "18px",
-          fontWeight: "700",
-        }}
+      
       />
+      </div>
     </form>
   );
 };

@@ -72,72 +72,81 @@ const EditEventFormCard = ({ id }) => {
         <h1>Loading..</h1>
       ) : (
         <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-            width: "50%",
-          }}
+        className="text-center p-2"
+
           onSubmit={handleSubmit}
-        >
-          <span style={{ color: "red", fontSize: "20px" }}>{errorMsg}</span>
-          <span>How&apos;s Hosting?</span>
-          <input
-            type="text"
-            placeholder="Who's hosting?"
+        > 
+    <div class="mb-4">
+
+<span for="formGroupExampleInput" class="form-label text-capitalize" >How&apos;s Hosting?</span>
+<input
+class="form-control" id="formGroupExampleInput text-capitalize" 
+  type="text"
+  placeholder="Host"
             style={formStyle}
             value={event.eventHoster}
             onChange={(e) =>
               setEvent({ ...event, eventHoster: e.target.value })
             }
           />
-          <span>Event Title</span>
-          <input
-            type="text"
-            placeholder="Event Title"
+          </div>
+          <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">Event Title </span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
+        type="text"
+        placeholder="Title"
             style={formStyle}
             value={event.eventTitle}
             onChange={(e) => setEvent({ ...event, eventTitle: e.target.value })}
           />
-          <span>Event Date</span>
-          <input
-            type="date"
-            placeholder="Event Date"
+          </div>
+          <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">Event Date</span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
+        type="date"
+        placeholder="Date"
             style={formStyle}
             value={event.eventDate}
             onChange={(e) => setEvent({ ...event, eventDate: e.target.value })}
           />
-          <span>Event Time</span>
-          <input
-            type="time"
-            placeholder="Event Time"
+          </div>
+          <div class="mb-4">
+
+          <span for="formGroupExampleInput" class="form-label text-capitalize">Event Time</span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
+        type="time"
+        placeholder="Time"
             style={formStyle}
             value={event.eventTime}
             onChange={(e) => setEvent({ ...event, eventTime: e.target.value })}
           />
-          <span>Location</span>
-          <input
-            type="text"
-            placeholder="Location"
+          </div>
+          <div class="mb-4">
+          <span for="formGroupExampleInput" class="form-label text-capitalize">Location</span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
+        type="text"
+        placeholder="Location"
             style={formStyle}
             value={event.eventLocation}
             onChange={(e) =>
               setEvent({ ...event, eventLocation: e.target.value })
             }
           />
+          </div>
+          <div class="mb-4">
+
           <input
+                class="btn btn-primary text-uppercase "
+
             type="submit"
             value={isLoading ? "Loading.." : "Submit"}
             disabled={isLoading}
-            style={{
-              cursor: "pointer",
-              padding: "10px",
-              backgroundColor: isLoading ? "gray" : "cyan",
-              color: "black",
-              fontSize: "18px",
-              fontWeight: "700",
-            }}
           />
+          </div>
         </form>
       )}
     </>

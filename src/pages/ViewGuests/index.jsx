@@ -6,6 +6,10 @@ import { useSelector } from "react-redux";
 import "./style.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { URL } from "../../utils";
+import { IoCopyOutline } from "react-icons/io5";
+import { GoPencil } from "react-icons/go";
+import { TiDelete } from "react-icons/ti";
+
 
 const ViewGuests = () => {
   const { eventTitle, eventId } = useParams();
@@ -16,8 +20,8 @@ const ViewGuests = () => {
   const [copyLink, setCopiedLink] = useState("Copy");
 
   const handleDeleteGuests = async (id) => {
-    const deleteEvent = prompt("Type 'Yes' to delete event");
-    if (deleteEvent === "Yes") {
+    const deleteEvent = prompt("Type 'Yes' to remove guest");
+    if (deleteEvent == "Yes" || "yes") {
       setIsLoading(true);
       const eventToDelete = doc(db, "guests", id);
       await deleteDoc(eventToDelete);
@@ -61,53 +65,55 @@ const ViewGuests = () => {
     }
   }, [user, isLogged, eventId]);
   return (
-    <div style={fullCenterStyle}>
-      <h1>{eventTitle} Guests</h1>
+    <div class="container text-center">
+      <h1>Guests List</h1>
       {isLoading ? (
         <h3>Loading...</h3>
       ) : (
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Tickets</th>
-            <th>Invitation Link</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
+        <table class="table text-center table-primary">
+          <thead>
+            <tr>
+
+              <th scope="col">Name</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Tickets</th>
+              <th scope="col">Invitation Link</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
           {eventGuests && eventGuests.length > 0 ? (
             eventGuests.map((guests) => (
-              <tr key={guests.id}>
+              <tr key={guests.id} className=" shadow-sm">
                 <td>{guests.guestName}</td>
                 <td>{guests.phoneNumber}</td>
                 <td>{guests.ticketCount}</td>
-                <td
-                  onClick={() => {
-                    handleCopyInvitationLink(guests.invitationId);
-                  }}
-                  style={{ color: copyLink === "Copy" ? "white" : "green" }}
+                <td scope="col"
+
+
                 >
-                  <button
-                    style={{
-                      width: "90%",
-                      backgroundColor: copyLink === "Copy" ? "black" : "green",
-                    }}
-                  >
-                    {" "}
+                  {copyLink === "Copy" ? <IoCopyOutline onClick={() => {
+                    handleCopyInvitationLink(guests.invitationId);
+                  }} size={40} style={{ cursor: "pointer" }} /> : "COPIED!"}
+
+                  {/* <button >
+                    {`copied`}
                     {copyLink}
-                  </button>
+                  </button> */}
                 </td>
-                <td
+                <td scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() => navigate(`/edit-guest/${guests.id}`)}
                 >
-                  Edit Guest
+                  <GoPencil size={40} />
+
                 </td>
-                <td
+                <td scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() => handleDeleteGuests(guests.id)}
                 >
-                  Delete Guest
+                  <TiDelete color="red" className="btn btn-danger" size={40} />
+
                 </td>
               </tr>
             ))
@@ -117,13 +123,8 @@ const ViewGuests = () => {
         </table>
       )}
       <button
-        style={{
-          position: "absolute",
-          bottom: "0",
-          left: "0",
-          backgroundColor: "lightgray",
-          color: "black",
-        }}
+        class=" btn btn-primary m-2 position-fixed bottom-0 end-0"
+
         onClick={() => navigate(`/add-guests/${eventId}`)}
       >
         Add Guest

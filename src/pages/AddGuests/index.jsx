@@ -52,51 +52,49 @@ const AddGuests = () => {
   ) : (
     <div style={fullCenterStyle}>
       <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          width: "50%",
-        }}
+                className="text-center p-2"
+
         onSubmit={handleSubmit}
       >
-        <span>Guest Name</span>
-        <input
-          type="text"
-          placeholder="Guest Name"
+          <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">guest name </span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
+        type="text"
           style={formStyle}
           value={guestName}
           onChange={(e) => setGuestName(e.target.value)}
         />
-        <span>Guest Phone Number</span>
-        <input
-          type="text"
-          placeholder="Guest Number"
+        </div>
+        <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">Guest phone number </span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
+        type="phone"
+          placeholder="Guest phone"
           style={formStyle}
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
-        <span>How Many Tickets For This Guest?</span>
-        <input
+        </div>
+        <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">number of ticket</span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
           type="number"
-          placeholder="Event Date"
+          placeholder="tickets"
           style={formStyle}
           value={ticketCount}
           onChange={(e) => setTicketCount(e.target.value)}
         />
-
+</div>
         <input
+                        class="btn btn-primary text-uppercase "
+
           type="submit"
           value={isLoading ? "Loading.." : "Submit"}
           disabled={isLoading}
-          style={{
-            cursor: "pointer",
-            padding: "10px",
-            backgroundColor: isLoading ? "gray" : "cyan",
-            color: "black",
-            fontSize: "18px",
-            fontWeight: "700",
-          }}
+         
         />
       </form>
     </div>

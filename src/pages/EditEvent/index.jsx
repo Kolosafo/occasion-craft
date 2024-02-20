@@ -14,16 +14,6 @@ const TicketEvent = () => {
   }, [navigate, isLogged, id]);
   return (
     <div
-      style={{
-        border: "2px solid white",
-        width: "99vw",
-        height: "100vh",
-        alignSelf: "center",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
     >
       <h1>Edit Event</h1>
       <EditEventFormCard id={id} />

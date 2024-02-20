@@ -24,7 +24,7 @@ const OtherEvent = () => {
         alignItems: "center",
       }}
     >
-      <h1>Other Event</h1>
+   <h1 className="text-capitalize">Set up Other Event</h1>
       <EventFormCard eventType={"other event"} />
     </div>
   );

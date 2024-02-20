@@ -76,51 +76,49 @@ const EditGuests = () => {
   ) : (
     <div style={fullCenterStyle}>
       <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          width: "50%",
-        }}
+                     className=" form text-center p-2"
+
         onSubmit={handleSubmit}
       >
-        <span>Guest Name</span>
-        <input
-          type="text"
+          <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">guest name </span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
+        type="text"
           placeholder="Guest Name"
           style={formStyle}
           value={guest.guestName}
           onChange={(e) => setGuest({ ...guest, guestName: e.target.value })}
         />
-        <span>Guest Phone Number</span>
-        <input
-          type="text"
-          placeholder="Guest Number"
+        </div>
+       <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">Guest phone number </span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
+        type="phone"
+          placeholder="Guest phone"
           style={formStyle}
           value={guest.phoneNumber}
           onChange={(e) => setGuest({ ...guest, phoneNumber: e.target.value })}
         />
-        <span>How Many Tickets For This Guest?</span>
-        <input
+        </div>
+            <div class="mb-4">
+      <span for="formGroupExampleInput" class="form-label text-capitalize">number of ticket</span>
+      <input
+      class="form-control" id="formGroupExampleInput text-capitalize" 
           type="number"
-          placeholder="Event Date"
+          placeholder="tickets"
           style={formStyle}
           value={guest.ticketCount}
           onChange={(e) => setGuest({ ...guest, ticketCount: e.target.value })}
         />
-
+</div>
         <input
           type="submit"
           value={isLoading ? "Loading.." : "Submit"}
           disabled={isLoading}
-          style={{
-            cursor: "pointer",
-            padding: "10px",
-            backgroundColor: isLoading ? "gray" : "cyan",
-            color: "black",
-            fontSize: "18px",
-            fontWeight: "700",
-          }}
+          class="btn btn-primary text-uppercase "
+
         />
       </form>
     </div>
