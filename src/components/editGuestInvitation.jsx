@@ -34,7 +34,7 @@ const EditGuests = () => {
         });
     }
     setIsLoading(false);
-    navigate("/events");
+    navigate("/guest/:invitationId");
   };
 
   useEffect(() => {
@@ -75,50 +75,67 @@ const EditGuests = () => {
     <h1>Loading...</h1>
   ) : (
     <div style={fullCenterStyle}>
-      <form
-                     className=" form text-center p-2"
-
-        onSubmit={handleSubmit}
-      >
-          <div class="mb-4">
-      <span for="formGroupExampleInput" class="form-label text-capitalize">guest name </span>
-      <input
-      class="form-control" id="formGroupExampleInput text-capitalize" 
-        type="text"
-          placeholder="Guest Name"
-          style={formStyle}
-          value={guest.guestName}
-          onChange={(e) => setGuest({ ...guest, guestName: e.target.value })}
-        />
+      <form className=" form text-center p-2" onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <span
+            htmlFor="formGroupExampleInput"
+            className="form-label text-capitalize"
+          >
+            guest name{" "}
+          </span>
+          <input
+            className="form-control"
+            id="formGroupExampleInput text-capitalize"
+            type="text"
+            placeholder="Guest Name"
+            style={formStyle}
+            value={guest.guestName}
+            onChange={(e) => setGuest({ ...guest, guestName: e.target.value })}
+          />
         </div>
-       <div class="mb-4">
-      <span for="formGroupExampleInput" class="form-label text-capitalize">Guest phone number </span>
-      <input
-      class="form-control" id="formGroupExampleInput text-capitalize" 
-        type="phone"
-          placeholder="Guest phone"
-          style={formStyle}
-          value={guest.phoneNumber}
-          onChange={(e) => setGuest({ ...guest, phoneNumber: e.target.value })}
-        />
+        <div className="mb-4">
+          <span
+            htmlFor="formGroupExampleInput"
+            className="form-label text-capitalize"
+          >
+            Guest phone number{" "}
+          </span>
+          <input
+            className="form-control"
+            id="formGroupExampleInput text-capitalize"
+            type="phone"
+            placeholder="Guest phone"
+            style={formStyle}
+            value={guest.phoneNumber}
+            onChange={(e) =>
+              setGuest({ ...guest, phoneNumber: e.target.value })
+            }
+          />
         </div>
-            <div class="mb-4">
-      <span for="formGroupExampleInput" class="form-label text-capitalize">number of ticket</span>
-      <input
-      class="form-control" id="formGroupExampleInput text-capitalize" 
-          type="number"
-          placeholder="tickets"
-          style={formStyle}
-          value={guest.ticketCount}
-          onChange={(e) => setGuest({ ...guest, ticketCount: e.target.value })}
-        />
-</div>
+        <div className="mb-4">
+          <span
+            htmlFor="formGroupExampleInput"
+            className="form-label text-capitalize"
+          >
+            number of ticket
+          </span>
+          <input
+            className="form-control"
+            id="formGroupExampleInput text-capitalize"
+            type="number"
+            placeholder="tickets"
+            style={formStyle}
+            value={guest.ticketCount}
+            onChange={(e) =>
+              setGuest({ ...guest, ticketCount: e.target.value })
+            }
+          />
+        </div>
         <input
           type="submit"
           value={isLoading ? "Loading.." : "Submit"}
           disabled={isLoading}
-          class="btn btn-primary text-uppercase "
-
+          className="btn btn-primary text-uppercase "
         />
       </form>
     </div>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { fullCenterStyle } from "../Login";
 import { deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db, eventCollectionRef } from "../../../firebase";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,9 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa6";
 import { GoPencil } from "react-icons/go";
 import { TiDelete } from "react-icons/ti";
-
-
-
 
 const Events = () => {
   const dispatch = useDispatch();
@@ -57,13 +53,16 @@ const Events = () => {
     }
   }, [user, isLogged, dispatch, events.length]);
   return (
-    <div class="container text-center">
-      <p><h1>My Events</h1></p>
+    <div className="container text-center">
+      <p>
+        <h1>My Events</h1>
+      </p>
       {isLoading ? (
         <h3>Loading...</h3>
+      ) : !events || events.length <= 0 ? (
+        <h1>You Haven&apos;t Created any events</h1>
       ) : (
-
-        <table class="table text-center table-primary">
+        <table className="table text-center table-primary">
           <thead>
             <tr>
               <th scope="col">Title</th>
@@ -77,7 +76,7 @@ const Events = () => {
               <th scope="col">Delete</th>
             </tr>
           </thead>
-          {events && events.length > 0 ? (
+          {events.length > 0 &&
             events.map((event) => (
               <tr key={event.id} className=" shadow-sm">
                 <td scope="col">{event.eventTitle}</td>
@@ -86,39 +85,39 @@ const Events = () => {
                 <td scope="col">{event.eventLocation}</td>
                 <td scope="col">{event.eventTime}</td>
                 <td scope="col">{event.eventType}</td>
-                <td scope="col"
+                <td
+                  scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() =>
                     navigate(`/view-guests/${event.eventTitle}/${event.id}`)
                   }
                 >
-                  <FaRegEye color="#007BFF" size={40} class="btn btn-primary"/>
-
+                  <FaRegEye
+                    color="#007BFF"
+                    size={40}
+                    className="btn btn-primary"
+                  />
                 </td>
-                <td scope="col"
+                <td
+                  scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() => navigate(`/edit-event/${event.id}`)}
                 >
-                  <GoPencil size={40}/>
-
+                  <GoPencil size={40} />
                 </td>
-                <td scope="col"
+                <td
+                  scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() => handleDeleteEvent(event.id)}
                 >
-                    <TiDelete color="red" className="btn btn-danger" size={40}/>
-
+                  <TiDelete color="red" className="btn btn-danger" size={40} />
                 </td>
               </tr>
-            ))
-          ) : (
-            <h1>You Haven&apos;t Created any events</h1>
-          )}
+            ))}
         </table>
       )}
       <button
-      
-        class=" btn btn-primary m-2 position-fixed bottom-0 end-0"
+        className=" btn btn-primary m-2 position-fixed bottom-0 end-0"
         onClick={() => navigate(`/create-event`)}
       >
         New Event

@@ -4,6 +4,7 @@ import { eventCollectionRef } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeEvents } from "../redux/features/eventSlice";
+import PaymentButton from "./payment";
 
 // eslint-disable-next-line react/prop-types
 const EventFormCard = ({ eventType }) => {
@@ -39,76 +40,105 @@ const EventFormCard = ({ eventType }) => {
     navigate("/events");
   };
   return (
-    <form
-    className="text-center"
-      onSubmit={handleSubmit}
-    >
-      <div class="mb-4">
-
-      <span for="formGroupExampleInput" class="form-label text-capitalize" >How&apos;s Hosting?</span>
-      <input
-      class="form-control" id="formGroupExampleInput text-capitalize" 
-        type="text"
-        placeholder="Host"
-        style={formStyle}
-        value={hoster}
-        onChange={(e) => setHoster(e.target.value)}
-      />
-            </div>
-      <div class="mb-4">
-      <span for="formGroupExampleInput" class="form-label text-capitalize">Event Title </span>
-      <input
-      class="form-control" id="formGroupExampleInput text-capitalize" 
-        type="text"
-        placeholder="Title"
-        style={formStyle}
-        value={eventTitle}
-        onChange={(e) => setEventTitle(e.target.value)}
-      />
-      </div >
-      <div class="mb-4">
-      <span for="formGroupExampleInput" class="form-label text-capitalize">Event Date</span>
-      <input
-      class="form-control" id="formGroupExampleInput text-capitalize" 
-        type="date"
-        placeholder="Date"
-        style={formStyle}
-        value={eventDate}
-        onChange={(e) => setEventDate(e.target.value)}
-      />
+    <div className="text-center">
+      <div className="mb-4">
+        <span
+          htmlFor="formGroupExampleInput"
+          className="form-label text-capitalize"
+        >
+          How&apos;s Hosting?
+        </span>
+        <input
+          className="form-control"
+          id="formGroupExampleInput text-capitalize"
+          type="text"
+          placeholder="Host"
+          style={formStyle}
+          value={hoster}
+          onChange={(e) => setHoster(e.target.value)}
+        />
       </div>
-      <div class="mb-4">
-      <span for="formGroupExampleInput" class="form-label text-capitalize">Event Time</span>
-      <input
-      class="form-control" id="formGroupExampleInput text-capitalize" 
-        type="time"
-        placeholder="Time"
-        style={formStyle}
-        value={eventTime}
-        onChange={(e) => setEventTime(e.target.value)}
-      />
-      </div >
-      <div class="mb-4">
-      <span for="formGroupExampleInput" class="form-label text-capitalize">Location</span>
-      <input
-      class="form-control" id="formGroupExampleInput text-capitalize" 
-        type="text"
-        placeholder="Location"
-        style={formStyle}
-        value={eventLocation}
-        onChange={(e) => setEventLocation(e.target.value)}
-      />
+      <div className="mb-4">
+        <span
+          htmlFor="formGroupExampleInput"
+          className="form-label text-capitalize"
+        >
+          Event Title{" "}
+        </span>
+        <input
+          className="form-control"
+          id="formGroupExampleInput text-capitalize"
+          type="text"
+          placeholder="Title"
+          style={formStyle}
+          value={eventTitle}
+          onChange={(e) => setEventTitle(e.target.value)}
+        />
       </div>
-      <div class="mb-4">
-      <input
-      class="btn btn-primary text-uppercase "
-        type="submit"
-        value={isLoading ? "Loading.." : "Submit"}
-        disabled={isLoading}
-      
-      />
+      <div className="mb-4">
+        <span
+          htmlFor="formGroupExampleInput"
+          className="form-label text-capitalize"
+        >
+          Event Date
+        </span>
+        <input
+          className="form-control"
+          id="formGroupExampleInput text-capitalize"
+          type="date"
+          placeholder="Date"
+          style={formStyle}
+          value={eventDate}
+          onChange={(e) => setEventDate(e.target.value)}
+        />
       </div>
-    </form>
+      <div className="mb-4">
+        <span
+          htmlFor="formGroupExampleInput"
+          className="form-label text-capitalize"
+        >
+          Event Time
+        </span>
+        <input
+          className="form-control"
+          id="formGroupExampleInput text-capitalize"
+          type="time"
+          placeholder="Time"
+          style={formStyle}
+          value={eventTime}
+          onChange={(e) => setEventTime(e.target.value)}
+        />
+      </div>
+      <div className="mb-4">
+        <span
+          htmlFor="formGroupExampleInput"
+          className="form-label text-capitalize"
+        >
+          Location
+        </span>
+        <input
+          className="form-control"
+          id="formGroupExampleInput text-capitalize"
+          type="text"
+          placeholder="Location"
+          style={formStyle}
+          value={eventLocation}
+          onChange={(e) => setEventLocation(e.target.value)}
+        />
+      </div>
+      <div className="mb-4">
+        {isLoading ? (
+          <input
+            className="btn btn-primary text-uppercase "
+            type="submit"
+            value={"Loading.."}
+            disabled={isLoading}
+          />
+        ) : (
+          <PaymentButton runSaveHandleItemPurchased={handleSubmit} />
+        )}
+      </div>
+    </div>
   );
 };
 

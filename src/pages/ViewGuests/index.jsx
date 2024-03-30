@@ -10,9 +10,8 @@ import { IoCopyOutline } from "react-icons/io5";
 import { GoPencil } from "react-icons/go";
 import { TiDelete } from "react-icons/ti";
 
-
 const ViewGuests = () => {
-  const { eventTitle, eventId } = useParams();
+  const {  eventId } = useParams();
   const navigate = useNavigate();
   const { user, isLogged } = useSelector((store) => store.auth);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +20,7 @@ const ViewGuests = () => {
 
   const handleDeleteGuests = async (id) => {
     const deleteEvent = prompt("Type 'Yes' to remove guest");
-    if (deleteEvent == "Yes" || "yes") {
+    if (deleteEvent === "Yes" || deleteEvent === "yes") {
       setIsLoading(true);
       const eventToDelete = doc(db, "guests", id);
       await deleteDoc(eventToDelete);
@@ -73,7 +72,6 @@ const ViewGuests = () => {
         <table class="table text-center table-primary">
           <thead>
             <tr>
-
               <th scope="col">Name</th>
               <th scope="col">Phone Number</th>
               <th scope="col">Tickets</th>
@@ -88,32 +86,37 @@ const ViewGuests = () => {
                 <td>{guests.guestName}</td>
                 <td>{guests.phoneNumber}</td>
                 <td>{guests.ticketCount}</td>
-                <td scope="col"
-
-
-                >
-                  {copyLink === "Copy" ? <IoCopyOutline onClick={() => {
-                    handleCopyInvitationLink(guests.invitationId);
-                  }} size={40} style={{ cursor: "pointer" }} /> : "COPIED!"}
+                <td scope="col">
+                  {copyLink === "Copy" ? (
+                    <IoCopyOutline
+                      onClick={() => {
+                        handleCopyInvitationLink(guests.invitationId);
+                      }}
+                      size={40}
+                      style={{ cursor: "pointer" }}
+                    />
+                  ) : (
+                    "COPIED!"
+                  )}
 
                   {/* <button >
                     {`copied`}
                     {copyLink}
                   </button> */}
                 </td>
-                <td scope="col"
+                <td
+                  scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() => navigate(`/edit-guest/${guests.id}`)}
                 >
                   <GoPencil size={40} />
-
                 </td>
-                <td scope="col"
+                <td
+                  scope="col"
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() => handleDeleteGuests(guests.id)}
                 >
                   <TiDelete color="red" className="btn btn-danger" size={40} />
-
                 </td>
               </tr>
             ))
@@ -124,7 +127,6 @@ const ViewGuests = () => {
       )}
       <button
         class=" btn btn-primary m-2 position-fixed bottom-0 end-0"
-
         onClick={() => navigate(`/add-guests/${eventId}`)}
       >
         Add Guest
