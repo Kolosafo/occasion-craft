@@ -9,7 +9,7 @@ const PaymentButton = ({ runSaveHandleItemPurchased }) => {
     reference: new Date().getTime().toString(),
     email: user.email,
     amount: 50000 * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: "PAYKEY",
+    publicKey: "pk_live_904f566b2af8b8856c940788fe63e338738438d8",
   };
 
   const handlePaystackSuccessAction = async () => {

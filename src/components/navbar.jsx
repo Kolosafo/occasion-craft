@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import HamburgerMenu from "./HamburgerMenu";
 
-const Navbar = () => {
+const Navbar = ({ setOpenMobileNav }) => {
   const { user, isLogged } = useSelector((store) => store.auth);
   return (
     <nav className="navbar navbar-expand-lg p-2 bg-body-tertiary shadow-sm">
@@ -19,6 +21,7 @@ const Navbar = () => {
             Sign In
           </Link>
         )}
+
         <Link class="nav-link" to={"/"} style={{ cursor: "pointer" }}>
           Home
         </Link>
@@ -33,6 +36,7 @@ const Navbar = () => {
           Create Event
         </Link>
       </ul>
+      <HamburgerMenu setOpenMenu={setOpenMobileNav} />
     </nav>
   );
 };

@@ -6,12 +6,16 @@ const renderRoute = (route, index) => {
 
 import { appRoutes } from "./route/app";
 import Navbar from "./components/navbar";
+import { useState } from "react";
+import MobileMenu from "./components/MobileMenu";
 
 function App() {
+  const [openMobileNav, setOpenMobileNav] = useState(false);
   return (
     <Router>
       {/* <InstacartHeader /> */}
-      <Navbar />
+      <MobileMenu isOpen={openMobileNav} setCloseNav={setOpenMobileNav} />
+      <Navbar setOpenMobileNav={setOpenMobileNav} />
       <Routes>
         {appRoutes.map((route, index) => renderRoute(route, index))}
       </Routes>
