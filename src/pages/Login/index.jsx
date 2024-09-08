@@ -19,6 +19,7 @@ function Login() {
   const SignInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
+      console.log("CHECKING LOGIN: ", result);
       const signedInData = {
         id: result.user.uid,
         name: result.user.displayName,

@@ -154,18 +154,18 @@ const Guest = () => {
       )}
     </>
   );
-  <body>
-<div class="invitation-card">
-  <h2>Universal Invitation</h2>
-  <p>Welcome to our event!</p>
-  <div class="invitation-details">
-    <p><strong>Guest Name:</strong> John Doe</p>
-    <p><strong>Event Title:</strong> Celebration Party</p>
-    <p><strong>Admits:</strong> 1 guest</p>
-    <img class="qr-code" src="https://example.com/qr-code" alt="QR Code"/>
-  </div>
-</div>
-</body>
+//   <body>
+// <div class="invitation-card">
+//   <h2>Universal Invitation</h2>
+//   <p>Welcome to our event!</p>
+//   <div class="invitation-details">
+//     <p><strong>Guest Name:</strong> John Doe</p>
+//     <p><strong>Event Title:</strong> Celebration Party</p>
+//     <p><strong>Admits:</strong> 1 guest</p>
+//     <img class="qr-code" src="https://example.com/qr-code" alt="QR Code"/>
+//   </div>
+// </div>
+// </body>
 };
 
 

@@ -14,3 +14,4 @@ export { default as AddGuests } from "./AddGuests/index";
 export { default as ViewGuests } from "./ViewGuests/index";
 export { default as Guest } from "./Guest/index";
 export { default as EditGuestPage } from "./EditGuest/index";
+export { default as ViewTicket } from "./ViewTicket/index";
