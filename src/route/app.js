@@ -16,6 +16,7 @@ import {
   Guest,
   ViewTicket,
   EditGuestPage,
+  TicketPurchase
 } from "../pages";
 
 export const appRoutes = [
@@ -50,6 +51,10 @@ export const appRoutes = [
   {
     to: "/edit-guest/:id",
     element: EditGuestPage,
+  },
+  {
+    to: "/ticket-purchase/:id/:eventTitle/:userEmail",
+    element: TicketPurchase,
   },
   {
     to: "/events",

@@ -18,4 +18,8 @@ export const googleProvider = new GoogleAuthProvider();
 
 export const db = getFirestore(app);
 export const eventCollectionRef = collection(db, "event");
+export const paymentCollectionRef = collection(db, "payment");
 export const guestCollectionRef = collection(db, "guests");
+export const userInfoCollectionRef = collection(db, "userInfo");
+export const scanDeviceCollectionRef = collection(db, "scanDevice");
+export const eventTicketCollectionRef = collection(db, "eventTickets");
