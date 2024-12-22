@@ -67,7 +67,7 @@ const TicketPurchase = () => {
       setSuccess(true);
     } else {
       setErrorMsg("User not found");
-      // setNotFound(true);
+      setNotFound(true);
       return null;
     }
   };
@@ -103,8 +103,8 @@ const TicketPurchase = () => {
   ) : (
     <MaxWidthContainer className="flex flex-col justify-center items-center p-24">
       <section className="flex flex-col justify-center items-center gap-2 lg:gap-4">
-        <span className="self-center font-bold text-2xl mb-6 max-w-prose">
-          {`${eventTitle} Event Creation Payment`}
+        <span className="self-center font-bold md:text-2xl text-lg mb-6 max-w-prose">
+          {`${eventTitle} Event Ticket Purchase`}
         </span>
 
         {eventObj.ticketPrice && (
