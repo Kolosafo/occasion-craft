@@ -6,7 +6,7 @@ const CheckoutSuccess = ({ text }) => {
     <div>
       <div className="flex flex-col h-[70vh] justify-center items-center mt-20">
         <FaCheckCircle size={"400px"} color={"green"} />
-        <h2 className="text-3xl my-2 text-center">
+        <h2 className="md:text-3xl text-lg font-bold my-2 text-center">
           {text ? text : "Payment Successful!"}
         </h2>
         {/* <h2 style={{ fontSize: "20px" }} className="mb-4">

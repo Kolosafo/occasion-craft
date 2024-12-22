@@ -96,7 +96,11 @@ const TicketPurchase = () => {
   ) : isLoading ? (
     <PageLoading />
   ) : success ? (
-    <CheckoutSuccess />
+    <CheckoutSuccess
+      text={
+        "Payment Successful! Please return to the app and refresh the events page"
+      }
+    />
   ) : (
     <MaxWidthContainer className="flex flex-col justify-center items-center p-24">
       <section className="flex flex-col justify-center items-center gap-2 lg:gap-4">
