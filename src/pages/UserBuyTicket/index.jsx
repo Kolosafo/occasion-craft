@@ -39,11 +39,14 @@ const TicketPurchase = () => {
       //   lastName: "Kolo";
       //   phoneNumber: "09075976217";
       //   userId: "I8Y1JdYM9NTHsuDc3aiPIQi8h092";
+      //   points: 0;
       // }
+      const userPoints = filteredUserInfo.points ?? 0;
       await addDoc(guestCollectionRef, {
         fullName: `${filteredUserInfo.firstName} ${filteredUserInfo.lastName}`,
         phoneNumber: filteredUserInfo.phoneNumber,
         guestUserId: filteredUserInfo.userId,
+        points: userPoints + 1,
         eventId: id,
         ticketCount: 1,
         ticketType: "normal",
