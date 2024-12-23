@@ -43,6 +43,7 @@ const TicketPurchase = () => {
       await addDoc(guestCollectionRef, {
         fullName: `${filteredUserInfo.firstName} ${filteredUserInfo.lastName}`,
         phoneNumber: filteredUserInfo.phoneNumber,
+        guestUserId: filteredUserInfo.userId,
         eventId: id,
         ticketCount: 1,
         ticketType: "normal",
@@ -97,7 +98,7 @@ const TicketPurchase = () => {
   ) : success ? (
     <CheckoutSuccess
       text={
-        "Payment Successful! Please return to the app and refresh the events page"
+        "Payment Successful! Please return to the app and refresh the tickets page"
       }
     />
   ) : (
