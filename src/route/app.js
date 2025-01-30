@@ -18,12 +18,17 @@ import {
   EditGuestPage,
   TicketPurchase,
   UserBuyTicket,
+  Privacy,
 } from "../pages";
 
 export const appRoutes = [
   {
     to: "/",
     element: Home,
+  },
+  {
+    to: "/privacy",
+    element: Privacy,
   },
   {
     to: "/register",

@@ -17,3 +17,4 @@ export { default as EditGuestPage } from "./EditGuest/index";
 export { default as ViewTicket } from "./ViewTicket/index";
 export { default as TicketPurchase } from "./TicketPurchase/index";
 export { default as UserBuyTicket } from "./UserBuyTicket/index";
+export { default as Privacy } from "./Privacy/index";

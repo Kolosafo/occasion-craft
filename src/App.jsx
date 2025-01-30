@@ -1,5 +1,5 @@
 // import Navbar from "./components/Navbar/navbar";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 const renderRoute = (route, index) => {
   return <Route key={index} path={route.to} element={<route.element />} />;
 };
@@ -19,6 +19,7 @@ function App() {
       <Routes>
         {appRoutes.map((route, index) => renderRoute(route, index))}
       </Routes>
+   
     </Router>
   );
 }
