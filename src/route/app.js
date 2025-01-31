@@ -19,6 +19,7 @@ import {
   TicketPurchase,
   UserBuyTicket,
   Privacy,
+  DeleteAccount,
 } from "../pages";
 
 export const appRoutes = [
@@ -29,6 +30,10 @@ export const appRoutes = [
   {
     to: "/privacy",
     element: Privacy,
+  },
+  {
+    to: "/delete-account",
+    element: DeleteAccount,
   },
   {
     to: "/register",
