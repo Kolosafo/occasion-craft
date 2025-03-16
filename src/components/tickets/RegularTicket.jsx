@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// import { BlurView } from "@react-native-community/blur";
 import { QRCodeCanvas } from "qrcode.react";
 
 const RegularTicketDesign = ({ event, inviteId }) => {
