@@ -20,6 +20,7 @@ import {
   UserBuyTicket,
   Privacy,
   DeleteAccount,
+  Support,
 } from "../pages";
 
 export const appRoutes = [
@@ -75,6 +76,11 @@ export const appRoutes = [
   {
     to: "/events",
     element: Events,
+  },
+
+  {
+    to: "/support",
+    element: Support,
   },
   {
     to: "/edit-event/:id",
